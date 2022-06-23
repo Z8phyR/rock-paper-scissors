@@ -55,16 +55,13 @@ function play() {
         if (computerChoice === playerChoice) {
             console.log("DRAW")
             return playAgain() ;
-        } else if (computerChoice === "Rock" && playerChoice !== "Paper") {
-            console.log(lose)
-            return playAgain()
-        } else if (computerChoice === "Paper" && playerChoice !== "Scissors") {
-            console.log(lose)
-            return playAgain()
-        } else if (computerChoice === "Scissors" && playerChoice !== "Rock") {
-            console.log(lose)
-            return playAgain()
-        } else {
+        } else if ( (computerChoice === "Rock" && playerChoice !== "Paper") ||
+                (computerChoice === "Paper" && playerChoice !== "Scissors") || 
+                (computerChoice === "Scissors" && playerChoice !== "Rock") )
+            {   console.log(lose)
+                return playAgain()
+        }
+         else {
             score++
             console.log(win)
             playAgain()
@@ -85,18 +82,6 @@ function playAgain () {
 
 }
 
-window.onload(playerPrompt());
 
 
-//COMPARE players choice vs computers choice
-//IF computer choice IS EQUAL to player choice - TIE
 
-//IF computer chooses Rock AND player chooses paper - WIN
-//IF computer chooses Rock AND player chooses scissors - LOSE
-//IF computer chooses Rock AND player chooses rock - TIE
-//IF computer chooses Paper AND player chooses Paper - TIE
-//If computer chooses Paper AND player chooses Rock - LOSE
-//If computer chooses Paper AND player chooses Scissors - WIN
-//If computer chooses Scissors AND player chooses Rock - WIN
-//If Computer chooses Scissors AND player chooses Paper - LOSE
-//If Computer Chooses Scissors AND player chooses Scissors - TIE

@@ -1,0 +1,18 @@
+* {
+    text-align: center;
+    background-color: rgb(127, 146, 255);
+}
+
+div {
+    border: solid 2px red;
+
+}
+
+button {
+    display: inline-block;
+    background-color:forestgreen;
+    font-weight: bolder;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
