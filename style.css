@@ -16,3 +16,11 @@ button {
     margin: 10px;
     border-radius: 5px;
 }
+
+.selection {
+    display: flex;
+    /* width: 50%; */
+    justify-content: center;
+    flex-direction: row;
+    gap: 15px;
+}

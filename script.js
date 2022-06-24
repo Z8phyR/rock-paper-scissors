@@ -1,37 +1,54 @@
 
 //Rock Paper Scissors
-// create a SCORE variable
-let score = 0;
+// create a SCORE variable for each player
+let playerScore = 0;
+let compScore = 0;
 // attach SCORE variable to HTML
-let sc = document.getElementById('scoreDisplay')
-
+let playerScoreDisplay = document.getElementById('playerScore');
+let compScoreDisplay = document.getElementById('compScore');
+let playerChoiceDisplay = document.getElementById('playerChoice');
+let compChoiceDisplay = document.getElementById('computerChoice');
+let resultDisplay = document.getElementById('resultDisplay');
 //make variable for computers choice
 let computerChoice;
 //make variable for players choice
 let playerChoice;
+let stopgame = false;
 //take INPUT of choice for player
 
-function playerPrompt() {
-   let choice = prompt("Pick your selection")
-        if (choice.toLowerCase() == "rock") {
-            console.log("Player chooses Rock")
-            playerChoice = "Rock"
-            return play()
-        } else if (choice.toLowerCase() == "scissors") {
-            console.log("Player Chooses Scissors")
-            playerChoice = "Scissors";
-            return play()
-        } else if (choice.toLowerCase() == "paper") {
-            console.log("Player chooses Paper")
-            playerChoice = "Paper";
-            return play()
-} else {
-    alert("Make a valid choice!")
-    return playerPrompt()
-}
-}
+function resetGame() {
+    let reset = document.querySelector('.resetbutton')
+    let resetButton = document.createElement('button')
+    resetButton.classList.add('resetgame');
+    resetButton.innerHTML = "Play again!";
+    reset.appendChild(resetButton)
+    resetButton.addEventListener("click", () => {
+        resetScore();
+        reset.removeChild(resetButton);
+
+    });
+    }
+const button = document.querySelectorAll(".select")
+button.forEach(button => button.addEventListener("click",(event) => {
+    playerChoice = event.target.id
+    console.log(`Player chooses ${playerChoice}`)
+    return play();
+    }
+));
 
 
+
+// RESET the Game
+function resetScore() {
+    playerScore = 0;
+    compScore = 0;
+    playerScoreDisplay.textContent = playerScore;
+    compScoreDisplay.textContent = compScore;
+    resultDisplay.textContent = "New Game!";
+    stopgame = false;
+    console.log("RESETTING THE SCORE!");
+
+}
 //take RANDOM INPUT of choice for computer
 function computerPlay() {
     let randNum = Math.floor(Math.random() * 3) + 1;
@@ -49,39 +66,55 @@ function computerPlay() {
 
 // PLAY the game
 function play() {
+    if (stopgame) { 
+        return console.log ("Game has STOPPED!")
+     }
+     else {
     computerPlay()
     var lose = `You Lose! ${computerChoice} beats ${playerChoice}!`;
     var win = `You WON! ${playerChoice} beats ${computerChoice}!`;
+    compChoiceDisplay.textContent = computerChoice;
+    playerChoiceDisplay.textContent = playerChoice;
         if (computerChoice === playerChoice) {
+            resultDisplay.textContent = "Its a DRAW! Try again!";
             console.log("DRAW")
             return playAgain() ;
         } else if ( (computerChoice === "Rock" && playerChoice !== "Paper") ||
                 (computerChoice === "Paper" && playerChoice !== "Scissors") || 
                 (computerChoice === "Scissors" && playerChoice !== "Rock") )
             {   console.log(lose)
+                resultDisplay.textContent = lose;
+                compScore++;
                 return playAgain()
         }
          else {
-            score++
+            playerScore++
+            resultDisplay.textContent = win;
             console.log(win)
-            playAgain()
+            return playAgain()
             }
         }
-
+    }
 function playAgain () {
-   if (score >= 5)
-    {
-        sc.textContent = score;
-        return alert("You've won the game!")
+   if (playerScore >= 5) {
+        stopgame = true;
+        playerScoreDisplay.textContent = playerScore;
+        compScoreDisplay.textContent = compScore;
+        resultDisplay.textContent = "You WIN the game! Play Again?"
+        return resetGame(); 
+    } 
+    else if (compScore >= 5) {
+        stopgame = true;
+        playerScoreDisplay.textContent = playerScore;
+        compScoreDisplay.textContent = compScore;
+        resultDisplay.textContent = "You LOST the game!! Play Again?"
+        return resetGame();
     }
-   else {
-    sc.textContent = score;
-        console.log("Score is " + score)
-        playerPrompt();
+    else {
+        playerScoreDisplay.textContent = playerScore;
+        compScoreDisplay.textContent = compScore;
+        return console.log("Score is " + playerScore)
+        // playerPrompt();
     }
-
 }
-
-
-
 

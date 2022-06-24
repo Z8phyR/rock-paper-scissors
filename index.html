@@ -10,15 +10,26 @@
 <body>
     <h1>Rock Paper Scissors</h1>
     <div class="selection">
-        <h3>Pick your selection</h3>
-        <button class="rock">Rock</button>
-        <button class="paper">Paper</button>
-        <button class="scissors">Scissors</button>
-        
-
+        <div class ="left">
+            <p>Your Choice: <span id="playerChoice"></span></p>
+        </div>
+            <div class="middle">
+            <h3>Pick your selection</h3>
+            <button class = "select" id="Rock">Rock</button>
+            <button class = "select" id="Paper">Paper</button>
+            <button class = "select" id="Scissors">Scissors</button>
+            </div>
+        <div class="right">
+            <p>Computer Choice: <span id="computerChoice"></span></p>
+        </div>
     </div>
-    <h2>Player Score: <span id="playerScore">0</span></h2>
+    <div class ='result'>
+     <p id="resultDisplay">Do your best!</p>
+        <h2>Player Score: <span id="playerScore">0</span></h2>
     <h2>Computer Score: <span id="compScore">0</span></h2>
+    </div>
+    <div class="resetbutton">
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
