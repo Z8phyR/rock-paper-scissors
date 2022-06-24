@@ -1,16 +1,28 @@
-* {
+html {
     text-align: center;
-    background-color: rgb(127, 146, 255);
+    /* background-color: rgb(127, 146, 255); */
+    color:bisque;
+    background-image: url('images/space-bg.jpg');
 }
 
-div {
-    border: solid 2px red;
 
+
+
+
+.heading {
+    background-color: rgb(129, 168, 212);
+    color:rgb(12, 27, 27);
+    border: solid 5px black;
+    border-radius: 15px;
+    margin: 50px;
+    padding: 10px;
+    z-index: 5;
+    
 }
 
 button {
     display: inline-block;
-    background-color:forestgreen;
+    background-color:rgb(129, 168, 212);
     font-weight: bolder;
     padding: 10px;
     margin: 10px;
@@ -19,8 +31,18 @@ button {
 
 .selection {
     display: flex;
-    /* width: 50%; */
+    max-width: 50%;
+    max-height: 50%;
+    margin: auto;
     justify-content: center;
     flex-direction: row;
     gap: 15px;
+    background-color: rgb(129, 168, 212);
+    border-radius: 20px;
+    color:black;
+
+}
+
+footer {
+    margin-top: 200px;
 }
