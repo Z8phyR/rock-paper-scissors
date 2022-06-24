@@ -12,9 +12,13 @@ html {
 .heading {
     background-color: rgb(129, 168, 212);
     color:rgb(12, 27, 27);
-    border: solid 5px black;
+    border: solid 5px white;
     border-radius: 15px;
-    margin: 50px;
+    max-width: 50%;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    
     padding: 10px;
     z-index: 5;
     
@@ -40,6 +44,7 @@ button {
     background-color: rgb(129, 168, 212);
     border-radius: 20px;
     color:black;
+    border: solid 5px white;
 
 }
 
